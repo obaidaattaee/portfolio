@@ -3,7 +3,7 @@
 @section('title' , "homepage")
 
 @section('content')
-}
+
     <!-- agency_heading_start -->
     <div class="agency_heading">
         <div class="container">
