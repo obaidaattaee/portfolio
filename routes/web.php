@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\GovermentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -47,6 +48,15 @@ Route::group([
     Route::get('chances/{chance}' , [\App\Http\Controllers\ChanceController::class, 'edit'])->name('chances.edit') ;
     Route::get('chances/{chance}/delete' ,  [\App\Http\Controllers\ChanceController::class , 'delete'])->name('chances.delete') ;
     // end chances route
+    // end advantage routes
+    // start chances routes
+    Route::get('goverment' , [\App\Http\Controllers\GovermentController::class , 'index'])->name('goverment.index') ;
+    Route::get('goverment/create' ,  [\App\Http\Controllers\GovermentController::class , 'create'])->name('goverment.create') ;
+    Route::post('goverment/save' ,  [\App\Http\Controllers\GovermentController::class, 'store'])->name('goverment.save') ;
+    Route::post('goverment/{chance}' , [\App\Http\Controllers\GovermentController::class, 'update'])->name('goverment.update') ;
+    Route::get('goverment/{chance}' , [\App\Http\Controllers\GovermentController::class, 'edit'])->name('goverment.edit') ;
+    Route::get('goverment/{chance}/delete' ,  [\App\Http\Controllers\GovermentController::class , 'delete'])->name('goverment.delete') ;
+    // end chances route
     // // start statistics routes
     Route::get('statistics' , [\App\Http\Controllers\StatistacController::class , 'index'])->name('statistics.index') ;
     Route::get('statistics/create' ,  [\App\Http\Controllers\StatistacController::class , 'create'])->name('statistics.create') ;
@@ -76,3 +86,5 @@ Route::get("/", [\App\Http\Controllers\Frontend\HomePageController::class , 'ind
 Route::get("contact", [\App\Http\Controllers\Frontend\HomePageController::class , 'contact'])->name('contact');
 Route::get("about", [\App\Http\Controllers\Frontend\HomePageController::class , 'about'])->name('about');
 Route::post("contact", [\App\Http\Controllers\Frontend\HomePageController::class , 'contactSave'])->name('contact.save');
+Route::get("advantage", [\App\Http\Controllers\Frontend\HomePageController::class , 'advantage'])->name('advantage');
+Route::get("advantage/{advantage}", [\App\Http\Controllers\Frontend\HomePageController::class , 'singleAdvantage'])->name('advantage.single');

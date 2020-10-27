@@ -24,9 +24,10 @@
     <link rel="stylesheet" href="{{ asset('css/animate.css')}}">
     <link rel="stylesheet" href="{{ asset('css/slicknav.css')}}">
     <link rel="stylesheet" href="{{ asset('css/style.css')}}">
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@700&family=Cairo:wght@300;400&display=swap" rel="stylesheet">
     <style>
         *,p,h1,h2,h3,h4,h5,h6{
+            font-family: 'Amiri', serif;
             font-family: 'Cairo', sans-serif;
         }
     </style>

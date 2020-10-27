@@ -67,4 +67,12 @@ class HomePageController extends Controller
             ->with('about' , $about)
             ->with('settings' , $settings);
     }
+    function advantage(){
+        $advantages = Advantage::get();
+        return view('frontend.advantage');
+    }
+    public function singleAdvantage(Advantage $advantage){
+        return view('frontend.single-advantage')
+        ->with('advantage' , $advantage);
+    }
 }

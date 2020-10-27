@@ -32,7 +32,7 @@ class SettingController extends Controller
             "youtube" => ['required'],
         ]);
         if (!empty($request['video_background_image_file']) || !empty($request['logo_image_file'])){
-            $video_background_image = basename($request['video_background_image_file']->store('toPath', ['disk' => 'public']));
+            $video_background_image = basename($request['video_background_image_file']->store("public"));
             $logo_image = basename($request['logo_image_file']->store("public"));
             $settings['video_background_image'] = $video_background_image;
             $settings['logo_image'] = $logo_image;

@@ -86,7 +86,7 @@
     <!-- "service_area_end -->
 
     <!-- build_product_start -->
-    <div class="build_product">
+    <div class="build_product" style="padding-top:100px;">
         <div class="container">
             <div class="row" style="text-align: right;">
                 <div class="col-xl-12">
@@ -97,31 +97,41 @@
                     </div>
                 </div>
             </div>
+            @php $i = 1 @endphp
             @foreach($advantages as $advantage)
-            <div class="row align-items-center" style="text-align: right">
-                <div class="col-xl-6 col-md-6">
-                    <div class="build_img">
-                        <img src="{{ asset('storage/'.$advantage->image) }}" alt="" width="150px">
+                <div style="padding-top:100px">
 
-                    </div>
-                </div>
-                <div class="col-xl-5 offset-xl-1 col-md-6">
-                    <div class="product_right">
-                        <div class="section_title">
-                            <h3>{{ $advantage->title }}</h3>
+                <div class="row align-items-center" @if ( ($i % 2) == 0)
+                    style="direction: ltr;"
+                @endif >
+                @php
+                    $i++
+                @endphp
+                    <div class="col-xl-6 col-md-6">
+                        <div class="build_img">
+                            <img src="{{ asset('storage/'.$advantage->image)}}" alt="">
                         </div>
-                        <p>{{ $advantage->description }}</p>
                     </div>
+                    <div class="col-xl-5 offset-xl-1 col-md-6">
+                        <div class="product_right" style="text-align: right;">
+                            <div class="section_title">
+                                <h3>{{ $advantage->title}}</h3>
+                            </div>
+                            <p>{{ $advantage->slug }}</p>
+                                <a href="{{ route('advantage.single' , ['advantage' => $advantage->id]) }}" class="btn underline_text" style="background-color: #FFCB00;">Visit Our Profile</a>
+                        </div>
 
+                    </div>
                 </div>
             </div>
+
             @endforeach
         </div>
     </div>
     <!-- build_product_end -->
 
     <!-- counter_area_start -->
-    <div class="counter_area">
+    <div class="counter_area" style="padding-top:100px;padding-bottom:100px">
         <h1 class="opacity_text d-none d-lg-block">
             Quick Fact
         </h1>
@@ -144,24 +154,13 @@
     <div class="instragram_area">
         @foreach($images as $image)
         <div class="single_instagram" >
-            <img src="{{ asset('storage/'.$image->image) }}" alt="" >
-            <div class="ovrelay">
-                <a data-toggle="modal" data-target="#myModal{{$image->id}}" onclick="$('#myModal').modal({backdrop: 'static', keyboard: true})">
-                    <i class="fa fa-hand-point-down"></i>
-                </a>
-            </div>
+            <div >
+                            <a href="{{ asset('storage/'.$image->image) }}" class="img-pop-up">
+                                <div class="single-gallery-image" style="background: url({{ asset('storage/'.$image->image) }});"></div>
+                            </a>
+                        </div>
         </div>
-            <div id="myModal{{$image->id}}" class="modal fade" role="dialog">
-                <div class="modal-dialog">
 
-                    <!-- Modal content-->
-                    <div class="modal-content">
-
-                        <img src="{{ asset('storage/'.$image->image) }}" alt="" >
-                    </div>
-
-                </div>
-            </div>
         @endforeach
     </div>
     <!-- instragram_area_end -->

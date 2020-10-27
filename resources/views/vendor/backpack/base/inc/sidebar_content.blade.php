@@ -17,4 +17,4 @@
 
 <li class="nav-item"><a class="nav-link" href="{{ route('about.index') }}"><i class="la la-home nav-icon"></i> {{ "نبذه" }}</a></li>
 
-<li class="nav-item"><a class="nav-link" href="{{ route('settings.index') }}"><i class="la la-home nav-icon"></i> {{ __('base.govermintrole') }}</a></li>
+<li class="nav-item"><a class="nav-link" href="{{ route('goverment.index') }}"><i class="la la-home nav-icon"></i> {{ "دور الحكومة " }}</a></li>

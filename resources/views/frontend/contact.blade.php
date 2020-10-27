@@ -1,66 +1,20 @@
 @extends("frontend.layouts.app")
 
-@section('title' , "homepage")
+@section('title' , "تواصل معنا")
 
 
 @section('content')
 
-    <div class="agency_heading">
-        <div class="container" style="text-align: right">
+    <div class="agency_heading minus-padd">
+        <div class="container">
             <div class="row">
                 <div class="col-xl-12">
-                    <div class="agency_text text-uppercase">
+                    <div class="agency_text" style="text-align: right">
                         <h3>تواصل معنا</h3>
                     </div>
                 </div>
             </div>
         </div>
-        <?php
-        $msg = \Session::get("msg");
-        $msgClass = 'alert-info';
-        ?>
-        @if($msg)
-            <?php
-            //اول حرفين من الرسالة وتحويلهم الى حروف صغيرة
-            $first2Letters = strtolower(substr($msg,0,2));
-            if($first2Letters == 's:'){
-                $msgClass = 'alert-success';
-                $msg = substr($msg,2);//قص اول حرفين
-            }
-            else if($first2Letters == 'w:'){
-                $msgClass = 'alert-warning';
-                $msg = substr($msg,2);//قص اول حرفين
-            }
-            else if($first2Letters == 'i:'){
-                $msgClass = 'alert-info';
-                $msg = substr($msg,2);//قص اول حرفين
-            }
-            else if($first2Letters == 'e:'){
-                $msgClass = 'alert-danger';
-                $msg = substr($msg,2);//قص اول حرفين
-            }
-            ?>
-            <div class='alert {{$msgClass}} alert-dismissible'>
-                {{$msg}}
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-        @endif
-
-        @if ($errors->any())
-            <div class="alert alert-danger  alert-dismissible show">
-                <ul>
-                    @foreach ($errors->all() as $error)
-                        <li>{{ $error }}</li>
-                    @endforeach
-                </ul>
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-        @endif
-
         <div class="animated_shape">
             <div class="anim_1">
                 <img src="img/about/1.png" alt="">
